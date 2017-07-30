@@ -10,18 +10,22 @@
 </head>
 <body>
 	<div class="contenedor">
-		<h1 class="titulo">Registrate</h1>
+		<h1 class="titulo">Formulario de registro</h1>
 		<hr class="border">
 			<div class="contenido">
 				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="formulario" name="login" method="post">
 					<div class="form-group">
-						<i class="icono izquierda fa fa-user"></i><input type="text" name="usuario" class="usuario" placeholder="Usuario">
+						<i class="icono izquierda fa fa-user"></i><input type="text" name="cedula" class="usuario" placeholder="Cedula">
 					</div>
 					<div class="form-group">
-						<i class="icono izquierda fa fa-lock"></i><input type="password" name="password" class="password" placeholder="Contraseña">
+						<i class="icono izquierda fa fa-user"></i><input type="password" name="nombre" class="password" placeholder="Nombre">
 					</div>
 					<div class="form-group">
-						<i class="icono izquierda fa fa-lock"></i><input type="password" name="password2" class="password_btn" placeholder="Repetir contraseña"><i class="submit-btn fa fa-arrow-right" onclick="login.submit()"></i>
+						<i class="icono izquierda fa fa-user"></i><input type="password" name="edad" class="password_btn" placeholder="Edad">
+					</div>
+					<div class="form-group accion">
+						<a href="index.php"><i class="submit-btn btn-2 fa fa-arrow-left" onclick="login.submit()"></i></a>
+						<i class="submit-btn fa fa-arrow-right" onclick="history.back()"></i>
 					</div>
 					<?php if(!empty($errores)): ?>
 						<div class="error">
@@ -32,10 +36,12 @@
 					<?php endif; ?>
 				</form>	
 			</div>
-			<p class="texto-registrate">
+			<div class="form-group registro">
+				<p class="texto-registrate">
 				Ya tienes cuenta?
 				<a id="cerrar" href="login.php">Iniciar session</a>
-			</p>
+				</p>
+			</div>
 	</div>
 	
 </body>

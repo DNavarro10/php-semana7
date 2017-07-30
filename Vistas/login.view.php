@@ -15,11 +15,20 @@
 			<div class="contenido">
 				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="formulario" name="login" method="post">
 					<div class="form-group">
-						<i class="icono izquierda fa fa-user"></i><input type="text" name="usuario" class="usuario" placeholder="Usuario" required>
+						<i class="icono izquierda fa fa-user"></i><input type="text" name="usuario" class="usuario" placeholder="Usuario" required="">
 					</div>
 					<div class="form-group">
-						<i class="icono izquierda fa fa-lock"></i><input type="password" name="password" class="password_btn" placeholder="Repetir contraseña" required><i class="submit-btn fa fa-arrow-right" onclick="login.submit()"></i>
+						<i class="icono izquierda fa fa-lock"></i><input type="password" name="password" class="password_btn" placeholder="Repetir contraseña" required="">
 					</div>
+					<div class="form-group accion">
+						<div>
+						<p>Recordar contraseña: </p><input class="checkbox" type="checkbox" name="recordar" value="Recordar Contraseña">
+						</div>
+					</div>
+					<div class="form-group accion">
+						<i class="submit-btn fa fa-arrow-right" onclick="login.submit()"></i>
+					</div>
+				
 					<?php if(!empty($errores)): ?>
 						<div class="error">
 							<ul>
@@ -29,10 +38,10 @@
 					<?php endif; ?>
 				</form>	
 			</div>
-			<p class="texto-registrate">
-				No tienes cuenta?
-				<a id="cerrar" href="registrate.php">Crear cuenta</a>
-			</p>
+			<div class="form-group registro">
+				<p class="texto-registrate">No tienes cuenta?<a id="cerrar" href="registrate.php">Crear cuenta</a>
+				</p>
+			</div>
 	</div>
 	
 </body>
