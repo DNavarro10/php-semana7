@@ -1,19 +1,24 @@
 <?php session_start();
 /* comprobar seseion*/
-if (isset($_SESSION['usuario'])){
+if (isset($_SESSION['cedula'])){
 	header('Location: index.php');
 }
+/* check */
 
+if(isset($_POST['recordar'])){
+	setcookie("contraseña", $_POST['cedula']);
+}
 $errores = '';
 
 /* comprobar si los datos an sido enviados*/
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-	$usuario = filter_var(strtolower($_POST['usuario']), FILTER_SANITIZE_STRING);
-	$password = $_POST['password'];
-	$password = hash('sha512' , $password);
 	
+	$cedula = filter_var(strtolower($_POST['nombre']), FILTER_SANITIZE_STRING);
+	
+	$nombre = filter_var(strtolower($_POST['cedula']), FILTER_SANITIZE_STRING);
+
 	try{
-		$conexion = new PDO('mysql:host=localhost; dbname=login','root', '');
+		$conexion = new PDO('mysql:host=localhost; dbname=autenticar','root', '');
 	} catch (PDOException $e){
 		echo "error: " . $e->getMessage();;
 	}
@@ -21,17 +26,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	/* Verificar si hay usuarios*/
 	
 	$estado = $conexion ->prepare('
-	SELECT * FROM usuarios WHERE usuario = :usuario AND pass = :password'
+	SELECT * FROM usuarios WHERE cedula = :cedula AND nombre = :nombre'
 	);
 	
 	$estado->execute(array(
-		':usuario' =>$usuario,
-		':password' =>$password
+		':cedula' =>$cedula,
+		':nombre' =>$nombre
 	));
 	
 	$resultado = $estado->fetch();
 	if($resultado !== false){
-		$_SESSION['usuario'] = $usuario;
+		$_SESSION['usuario'] = $nombre;
 		header('Location: index.php');
 	} else {
 		$errores .= '<li> Datos incorrectos</li>';

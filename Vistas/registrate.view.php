@@ -18,14 +18,15 @@
 						<i class="icono izquierda fa fa-user"></i><input type="text" name="cedula" class="usuario" placeholder="Cedula">
 					</div>
 					<div class="form-group">
-						<i class="icono izquierda fa fa-user"></i><input type="password" name="nombre" class="password" placeholder="Nombre">
+						<i class="icono izquierda fa fa-user"></i><input type="text" name="nombre" class="password" placeholder="Nombre">
 					</div>
 					<div class="form-group">
-						<i class="icono izquierda fa fa-user"></i><input type="password" name="edad" class="password_btn" placeholder="Edad">
+						<i class="icono izquierda fa fa-user"></i><input type="text" name="edad" class="password_btn" placeholder="Edad">
 					</div>
 					<div class="form-group accion">
-						<a href="index.php"><i class="submit-btn btn-2 fa fa-arrow-left" onclick="login.submit()"></i></a>
-						<i class="submit-btn fa fa-arrow-right" onclick="history.back()"></i>
+						<a href="index.php"><i class="submit-btn fa fa-arrow-left" onclick="history.back()"></i></a>
+						
+						<i class="submit-btn btn-2 fa fa-arrow-right" onclick="login.submit()"></i>
 					</div>
 					<?php if(!empty($errores)): ?>
 						<div class="error">

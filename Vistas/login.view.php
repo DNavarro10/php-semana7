@@ -15,14 +15,17 @@
 			<div class="contenido">
 				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="formulario" name="login" method="post">
 					<div class="form-group">
-						<i class="icono izquierda fa fa-user"></i><input type="text" name="usuario" class="usuario" placeholder="Usuario" required="">
+						<i class="icono izquierda fa fa-user"></i><input type="text" name="nombre" class="usuario" placeholder="Usuario" required="">
 					</div>
 					<div class="form-group">
-						<i class="icono izquierda fa fa-lock"></i><input type="password" name="password" class="password_btn" placeholder="Repetir contraseña" required="">
+						<i class="icono izquierda fa fa-lock"></i><input type="password" name="cedula" value="<?php if(isset($_COOKIE['cedula'])) echo $_COOKIE['cedula']; ?>" class="password_btn" placeholder="cedula" required="">
 					</div>
+					
 					<div class="form-group accion">
 						<div>
-						<p>Recordar contraseña: </p><input class="checkbox" type="checkbox" name="recordar" value="Recordar Contraseña">
+						<label for="recordar">Recordar contraseña :</label>
+						<input class="checkbox" type="checkbox" name="recordar" value="1" <?php if(isset($_COOKIE['username'])){echo "checked='checked'"; } ?> value="1">
+						
 						</div>
 					</div>
 					<div class="form-group accion">
