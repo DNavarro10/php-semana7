@@ -24,7 +24,8 @@
 						<i class="icono izquierda fa fa-user"></i><input type="text" name="edad" class="password_btn" placeholder="Edad">
 					</div>
 					<div class="form-group accion">
-						<a href="index.php"><i class="submit-btn fa fa-arrow-left" onclick="history.back()"></i></a>
+						<a href="index.php"><i class="submit-btn fa fa-arrow-left" onclick="history.back()"></i>
+						</a>
 						
 						<i class="submit-btn btn-2 fa fa-arrow-right" onclick="login.submit()"></i>
 					</div>

@@ -18,13 +18,13 @@
 						<i class="icono izquierda fa fa-user"></i><input type="text" name="nombre" class="usuario" placeholder="Usuario" required="">
 					</div>
 					<div class="form-group">
-						<i class="icono izquierda fa fa-lock"></i><input type="password" name="cedula" value="<?php if(isset($_COOKIE['cedula'])) echo $_COOKIE['cedula']; ?>" class="password_btn" placeholder="cedula" required="">
+						<i class="icono izquierda fa fa-lock"></i><input type="password" name="cedula" value="<?php if(isset($_COOKIE['password'])) echo $_COOKIE['password']; ?>" class="password_btn" placeholder="cedula" required="">
 					</div>
 					
 					<div class="form-group accion">
 						<div>
 						<label for="recordar">Recordar contraseña :</label>
-						<input class="checkbox" type="checkbox" name="recordar" value="1" <?php if(isset($_COOKIE['username'])){echo "checked='checked'"; } ?> value="1">
+						<input class="checkbox" type="checkbox" name="remenber" <?php if(isset($_COOKIE['password'])){echo "checked='checked'"; } ?> value="1">
 						
 						</div>
 					</div>
@@ -42,7 +42,7 @@
 				</form>	
 			</div>
 			<div class="form-group registro">
-				<p class="texto-registrate">No tienes cuenta?<a id="cerrar" href="registrate.php">Crear cuenta</a>
+				<p class="texto-registrate">No tienes cuenta?<a id="cerrar" href="registrate.php">Ir a registro</a>
 				</p>
 			</div>
 	</div>

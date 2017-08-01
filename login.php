@@ -5,17 +5,19 @@ if (isset($_SESSION['cedula'])){
 }
 /* check */
 
-if(isset($_POST['recordar'])){
-	setcookie("contraseña", $_POST['cedula']);
+if(!isset($_POST['remenber'])){
+	setcookie("password", $_POST['cedula'],time()+(60*60*24*365),"/");
+}else{
+	 setcookie("mail","",time()-1000,"/");
 }
+
 $errores = '';
 
 /* comprobar si los datos an sido enviados*/
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	
-	$cedula = filter_var(strtolower($_POST['nombre']), FILTER_SANITIZE_STRING);
-	
-	$nombre = filter_var(strtolower($_POST['cedula']), FILTER_SANITIZE_STRING);
+	$cedula = filter_var(strtolower($_POST['cedula']), FILTER_SANITIZE_STRING);
+	$nombre = filter_var(strtolower($_POST['nombre']), FILTER_SANITIZE_STRING);
 
 	try{
 		$conexion = new PDO('mysql:host=localhost; dbname=autenticar','root', '');
@@ -36,7 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	
 	$resultado = $estado->fetch();
 	if($resultado !== false){
-		$_SESSION['usuario'] = $nombre;
+		$_SESSION['cedula'] = $nombre;
 		header('Location: index.php');
 	} else {
 		$errores .= '<li> Datos incorrectos</li>';
