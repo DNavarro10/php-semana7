@@ -1,14 +1,17 @@
 <?php session_start();
+
 /* comprobar seseion*/
 if (isset($_SESSION['cedula'])){
 	header('Location: index.php');
 }
 /* check */
 
-if(!isset($_POST['remenber'])){
+if(isset($_POST['remenber'])){
 	setcookie("password", $_POST['cedula'],time()+(60*60*24*365),"/");
+	
 }else{
-	 setcookie("mail","",time()-1000,"/");
+	setcookie("password","",time()-1000,"/");
+	 
 }
 
 $errores = '';

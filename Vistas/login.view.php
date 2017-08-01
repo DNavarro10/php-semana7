@@ -42,7 +42,7 @@
 				</form>	
 			</div>
 			<div class="form-group registro">
-				<p class="texto-registrate">No tienes cuenta?<a id="cerrar" href="registrate.php">Ir a registro</a>
+				<p class="texto-registrate">Nuevos usuarios<a id="cerrar" href="registrate.php">Ir a registro</a>
 				</p>
 			</div>
 	</div>
